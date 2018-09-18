@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import NumberContext from "./../context/NumberContext";
 
 export default class Home extends React.Component {
   static navigationOptions = {
@@ -14,16 +15,22 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <View>
-        <Button
-          onPress={() => this.props.navigation.navigate('Notifications')}
-          title="Go to notifications"
-        />
-        <Button
-          onPress={() => this.props.navigation.openDrawer()}
-          title="Open"
-        />
-      </View>
+      <NumberContext.Consumer>
+        {(number) => (
+          <View>
+            <Button
+              onPress={() => this.props.navigation.navigate('Notifications')}
+              title="Go to notifications"
+            />
+            <Button
+              onPress={() => this.props.navigation.openDrawer()}
+              title="Open"
+            />
+            <Text>{number}</Text>
+            <Text>Ahihi do ngock</Text>
+          </View>
+        )}
+      </NumberContext.Consumer>
     );
   }
 }
