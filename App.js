@@ -9,6 +9,8 @@ import { DrawerNav } from './drawer/DrawerNav';
 import NumberContext from "./context/NumberContext";
 import Header from './part/Header';
 
+import { globalState } from './context/GlobalContext'
+
 const MyAppDraw = createDrawerNavigator({
   MyHome: {
     screen: Home,
@@ -18,35 +20,29 @@ const MyAppDraw = createDrawerNavigator({
   },
 });
 
-function Counter(props) {
-  return (
-    <NumberContext.Consumer>{val => <Text> {val} </Text>}</NumberContext.Consumer>
-  );
-}
 
 export default class App extends React.Component {
   state = {
-    number: 0
+    ...globalState
   };
 
-  onIncHandler = () => {
+  updateUser = () => {
     this.setState({
-      number: this.state.number + 1
-    });
-  };
-
-  onDecHandler = () => {
-    this.setState({
-      number: this.state.number - 1
-    });
-  };
-
-  // <Button onPress={this.onIncHandler} title="Increment"/>
-  // <Button onPress={this.onDecHandler} title="Decrement"/>
+      user: {
+        loged: true
+      }
+    })
+  }
 
   render() {
+    let context = {
+      state: this.state,
+      actions: {
+        updateUser: this.updateUser
+      }
+    }
     return (
-      <NumberContext.Provider value={this.state.number}>
+      <NumberContext.Provider value={context}>
         <DrawerNav/>
       </NumberContext.Provider>
     )

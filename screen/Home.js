@@ -7,7 +7,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <NumberContext.Consumer>
-        {(number) => (
+        {(context) => (
           <View>
             <Header {...this.props}/>
             <View>
