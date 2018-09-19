@@ -8,6 +8,10 @@ export default class Header extends React.Component {
     this.props.navigation.openDrawer();
   }
 
+  pressCenterBtn = () => {
+    this.props.navigation.navigate('Home', { name: 'Brent' });
+  }
+
   pressRightBtn = () => {
     alert("Click vào button bên phải!");
   }
@@ -23,7 +27,9 @@ export default class Header extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styles.textCent}>
-            <Icon.Diamond color={Config.textWhite}/>
+            <TouchableOpacity onPress={this.pressCenterBtn} style={styles.btnHeader}>
+              <Icon.Diamond color={Config.textWhite}/>
+            </TouchableOpacity>
           </View>
           <View style={styles.textRight}>
             <TouchableOpacity onPress={this.pressRightBtn} style={styles.btnHeader}>

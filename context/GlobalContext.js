@@ -4,7 +4,8 @@ export const globalState = {
   currentScreen: '',
   user: {
     loged: false
-  }
+  },
+  menuActive: ''
 };
 
 const GlobalContext = React.createContext(globalState); //passing initial value

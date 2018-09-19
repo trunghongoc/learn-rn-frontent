@@ -10,8 +10,8 @@ import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 
 export const DrawerNav = createDrawerNavigator (
   {
-      Home:{ screen: Home },
-      Notification:{ screen: Notification }
+      Home: { screen: Home },
+      Notification: { screen: Notification }
   },
   {
      contentComponent: drawerContentComponents

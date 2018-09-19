@@ -3,21 +3,23 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import NumberContext from "./../context/NumberContext";
 import Header from '../part/Header';
 import Segement from '../part/Segment';
+import FooterMenu from './../part/FooterMenu';
 
 export default class Home extends React.Component {
   render() {
     return (
       <NumberContext.Consumer>
         {(context) => (
-          <View>
+          <View style={styles.container}>
             <Header {...this.props}/>
             <View style={styles.container}>
-              <Button
-                onPress={() => this.props.navigation.navigate('Notifications')}
-                title="Trang Home -> Go to notifications"
-              />
+              <View style={styles.containerPadding}>
+                <Text>Trang Home</Text>
+                <Segement/>
+              </View>
+
+              <FooterMenu/>
             </View>
-            <Segement/>
           </View>
         )}
       </NumberContext.Consumer>
@@ -29,4 +31,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-}
+  containerPadding: {
+    flex: 1,
+    paddingHorizontal: 10
+  }
+});

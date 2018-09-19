@@ -7,8 +7,7 @@ export default class Segement extends Component {
     selectedIndex: 0,
   }
 
-  handleIndexChange = (index, a) => {
-    alert(index)
+  handleIndexChange = (index) => {
     this.setState({
       ...this.state,
       selectedIndex: index,
@@ -22,7 +21,7 @@ export default class Segement extends Component {
           values={['First', 'Second', 'Third']}
           selectedIndex={this.state.selectedIndex}
           onTabPress={this.handleIndexChange}
-          badges={[, 2, 3]}
+          badges={[null, 2, null]}
           accessibilityLabels={['ahi', 'bhi', 'chi']}
           />
       </View>

@@ -9,3 +9,7 @@ export const Info = (props) => <Icon name="info" color={props.color || Config.ic
 export const Home = (props) => <Icon name="home" color={props.color || Config.icon.color} size={props.size || Config.icon.size} />
 
 export const Globe = (props) => <Icon name="globe" color={props.color || Config.icon.color} size={props.size || Config.icon.size} />
+
+export const User = (props) => <Icon name="user" color={props.color || Config.icon.color} size={props.size || Config.icon.size} />
+export const EarphonesAlt = (props) => <Icon name="earphones-alt" color={props.color || Config.icon.color} size={props.size || Config.icon.size} />
+export const Bell = (props) => <Icon name="bell" color={props.color || Config.icon.color} size={props.size || Config.icon.size} />

@@ -31,14 +31,19 @@ export default class App extends React.Component {
       user: {
         loged: true
       }
-    })
+    });
+  }
+
+  setActiveMenu = (value) => {
+    this.setState({ menuActive: value });
   }
 
   render() {
     let context = {
       state: this.state,
       actions: {
-        updateUser: this.updateUser
+        updateUser: this.updateUser,
+        setActiveMenu: this.setActiveMenu
       }
     }
     return (
