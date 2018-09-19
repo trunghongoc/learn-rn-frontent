@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {NavigationActions} from 'react-navigation';
-import { Text, View, StyleSheet, ImageBackground } from 'react-native'
+import { Text, View, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native'
+import * as Icon from './../icons/SimpleLine'
+import Item from './Item'
 
 export default class drawerContentComponents extends Component {
 
@@ -16,18 +18,21 @@ export default class drawerContentComponents extends Component {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                <ImageBackground source={require('./../images/drawer.jpeg')} style={{flex: 1, width: 280, justifyContent: 'center'}} >
-                    <Text style={styles.headerText}>Đây là header nè mấy má ơi</Text>
-                    <Text style={styles.headerText}>Bạn có thể hiển thị hình ảnh profile ở đây ))</Text>
+                <ImageBackground source={require('./../images/diamond_bg.jpg')} style={styles.bg} >
+                    <View style={styles.imageAvatarWrap}>
+                        <Image
+                            source={require('./../images/man.png')}
+                            style={styles.imageAvatar}
+                        />
+                    </View>
+                    <View style={styles.fullName}>
+                        <Text style={styles.pFullName}>Trung Hồ  Ngọc</Text>
+                    </View>
                 </ImageBackground>
             </View>
             <View style={styles.screenContainer}>
-                <View style={styles.screenStyle}>
-                    <Text onPress={this.navigateToScreen('Home')}>Đến màn hình hôm nè mấy má ơi</Text>
-                </View>
-                <View style={styles.screenStyle}>
-                    <Text onPress={this.navigateToScreen('Notification')}>Đến màn hình notification nè</Text>
-                </View>
+                <Item pressEvent={this.navigateToScreen('Home')} Icon_={<Icon.Globe/>} text="Trang chủ"/>
+                <Item pressEvent={this.navigateToScreen('Notification')} Icon_={<Icon.Info/>} text="Thông báo"/>
             </View>
         </View>
     )
@@ -36,7 +41,7 @@ export default class drawerContentComponents extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center',
+        // alignItems: 'center',
     },
     headerContainer: {
         height: 150,
@@ -45,16 +50,36 @@ const styles = StyleSheet.create({
         color: '#fff8f8',
     },
     screenContainer: {
-        paddingTop: 20
+        padding: 10
     },
     screenStyle: {
-        height: 30,
-        marginTop: 2,
+        height: 32,
+        marginTop: 3,
         flexDirection: 'row',
         alignItems: 'center'
     },
-    screenTextStyle:{
-        fontSize: 20,
-        marginLeft: 20
+    bg: {
+        flex: 1,
+        width: 280,
+        justifyContent: 'center',
+        flexDirection: 'row'
     },
+    imageAvatarWrap: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 64,
+        marginLeft: 10,
+        marginRight: 10
+    },
+    imageAvatar: {
+        width: 64,
+        height: 64,
+    },
+    fullName: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    pFullName: {
+        fontSize: 16
+    }
 });

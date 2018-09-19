@@ -7,6 +7,7 @@ import Notification from './screen/Notification'
 import { DrawerNav } from './drawer/DrawerNav';
 
 import NumberContext from "./context/NumberContext";
+import Header from './part/Header';
 
 const MyAppDraw = createDrawerNavigator({
   MyHome: {
@@ -40,13 +41,13 @@ export default class App extends React.Component {
     });
   };
 
+  // <Button onPress={this.onIncHandler} title="Increment"/>
+  // <Button onPress={this.onDecHandler} title="Decrement"/>
+
   render() {
     return (
       <NumberContext.Provider value={this.state.number}>
-        <Counter />
-        <Button onPress={this.onIncHandler} title="Increment"/>
-        <Button onPress={this.onDecHandler} title="Decrement"/>
-        <MyAppDraw/>
+        <DrawerNav/>
       </NumberContext.Provider>
     )
   }

@@ -1,30 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import NumberContext from "./../context/NumberContext";
+import Header from '../part/Header';
 
 export default class Notification extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Notifications',
-    drawerIcon: ({ tintColor }) => (
-      <Image
-        source={require('./../images/notification.png')}
-        style={[styles.icon, {tintColor: tintColor}]}
-      />
-    ),
-  };
-
   render() {
     return (
-      <Button
-        onPress={() => this.props.navigation.goBack()}
-        title="Go back home"
-      />
+      <NumberContext.Consumer>
+        {(number) => (
+        <View>
+          <Header {...this.props}/>
+          <View>
+            <Button
+              onPress={() => this.props.navigation.goBack()}
+              title="Trang notification -> Go to home"
+            />
+          </View>
+        </View>
+        )}
+      </NumberContext.Consumer>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  icon: {
-    width: 24,
-    height: 24,
-  },
-});
