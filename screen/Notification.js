@@ -16,7 +16,7 @@ export default class Notification extends React.Component {
               <Text>Trang Notification</Text>
             </View>
           </View>
-          <FooterMenu/>
+          <FooterMenu {...this.props}/>
         </View>
         )}
       </NumberContext.Consumer>

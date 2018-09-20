@@ -18,7 +18,7 @@ export default class Home extends React.Component {
                 <Segement/>
               </View>
 
-              <FooterMenu/>
+              <FooterMenu {...this.props}/>
             </View>
           </View>
         )}
