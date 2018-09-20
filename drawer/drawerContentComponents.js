@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {NavigationActions} from 'react-navigation';
-import { Text, View, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native'
+import { Text, View, StyleSheet, ImageBackground, Image } from 'react-native'
 import * as Icon from './../icons/SimpleLine'
 import Item from './Item'
 

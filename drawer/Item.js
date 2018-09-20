@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import * as Icon from './../icons/SimpleLine';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 
 export default class Item extends Component {
   render() {

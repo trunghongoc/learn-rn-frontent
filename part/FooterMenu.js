@@ -1,13 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import NumberContext from "./../context/NumberContext";
 import * as Icon from '../icons/SimpleLine';
 import * as Config from '../config/Config';
+import FooterItem from './FooterItem';
 
 export default class FooterMenu extends React.Component {
     homeClick = (context) => {
         context.actions.setActiveMenu('home');
         this.props.navigation.navigate('Home');
+    }
+
+    myProfileClick = (context) => {
+        context.actions.setActiveMenu('myProfile');
+        this.props.navigation.navigate('myProfile');
+    }
+
+    newsClick = (context) => {
+        context.actions.setActiveMenu('news');
+        this.props.navigation.navigate('news');
     }
 
     notificationClick = (context) => {
@@ -20,33 +31,38 @@ export default class FooterMenu extends React.Component {
             <NumberContext.Consumer>
             {(context) => (
                 <View style={styles.footer}>
-                    <TouchableNativeFeedback onPress={ () => this.homeClick(context) }>
-                        <View style={context.state.menuActive == 'home' ? styles.itemActive : styles.item}>
-                            <Icon.PieChart color={Config.textWhite}/>
-                            <Text style={styles.text}>Trang chủ</Text>
-                        </View>
-                    </TouchableNativeFeedback>
+                    <FooterItem
+                        badge={null}
+                        TypeIcon={Icon.PieChart}
+                        text="Trang chủ"
+                        menuKey="home"
+                        menuActive={context.state.menuActive}
+                        handlePress={ () => this.homeClick(context) } />
 
-                    <TouchableNativeFeedback onPress={ () => context.actions.setActiveMenu('profile') }>
-                        <View style={context.state.menuActive == 'profile' ? styles.itemActive : styles.item}>
-                            <Icon.User color={Config.textWhite}/>
-                            <Text style={styles.text}>Cá nhân</Text>
-                        </View>
-                    </TouchableNativeFeedback>
+                    <FooterItem
+                        badge={null}
+                        TypeIcon={Icon.User}
+                        text="Cá nhân"
+                        menuKey="myProfile"
+                        menuActive={context.state.menuActive}
+                        handlePress={ () => this.myProfileClick(context) } />
 
-                    <TouchableNativeFeedback onPress={ () => context.actions.setActiveMenu('news') }>
-                        <View style={ context.state.menuActive == 'news' ? styles.itemActive : styles.item }>
-                            <Icon.EarphonesAlt color={Config.textWhite}/>
-                            <Text style={styles.text}>Tin tức</Text>
-                        </View>
-                    </TouchableNativeFeedback>
+                    <FooterItem
+                        badge={5}
+                        TypeIcon={Icon.EarphonesAlt}
+                        text="Tin tức"
+                        menuKey="news"
+                        menuActive={context.state.menuActive}
+                        handlePress={ () => this.newsClick(context) } />
 
-                    <TouchableNativeFeedback onPress={ () => this.notificationClick(context) }>
-                        <View style={ context.state.menuActive == 'notification' ? styles.itemActive : styles.item }>
-                            <Icon.Bell color={Config.textWhite}/>
-                            <Text style={styles.text}>Thông báo</Text>
-                        </View>
-                    </TouchableNativeFeedback>
+
+                    <FooterItem
+                        badge={22}
+                        TypeIcon={Icon.Bell}
+                        text="Thông báo"
+                        menuKey="notification"
+                        menuActive={context.state.menuActive}
+                        handlePress={ () => this.notificationClick(context) } />
                 </View>
             )}
             </NumberContext.Consumer>
@@ -60,18 +76,11 @@ const styles = StyleSheet.create({
         backgroundColor: Config.primaryColor,
         flexDirection: 'row'
     },
-    item: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
+    
     itemActive: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: Config.primaryColorLight
-    },
-    text: {
-        color: Config.textWhite
     }
 });

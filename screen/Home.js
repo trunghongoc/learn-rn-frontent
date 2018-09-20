@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import NumberContext from "./../context/NumberContext";
 import Header from '../part/Header';
 import Segement from '../part/Segment';
@@ -16,6 +16,7 @@ export default class Home extends React.Component {
               <View style={styles.containerPadding}>
                 <Text>Trang Home</Text>
                 <Segement/>
+                <Text>{context.state.menuActive}</Text>
               </View>
 
               <FooterMenu {...this.props}/>
