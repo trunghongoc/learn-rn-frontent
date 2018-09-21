@@ -4,7 +4,7 @@ import GlobalContext from "./../context/GlobalContext";
 import Header from './../part/Header';
 import FooterMenu from './../part/footer/FooterMenu';
 
-export default class Notification extends React.Component {
+export default class Notifications extends React.Component {
   render() {
     return (
       <GlobalContext.Consumer>

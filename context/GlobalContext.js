@@ -5,7 +5,7 @@ export const globalState = {
   user: {
     loged: false
   },
-  menuActive: 'home'
+  menuActive: 'Home'
 };
 
 const GlobalContext = React.createContext(globalState); //passing initial value

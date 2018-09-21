@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 
-import Home from './screen/Home'
-import Notification from './screen/Notification'
+import Home from './screen/Home';
+import Notifications from './screen/Notifications';
 import { DrawerNav } from './drawer/DrawerNav';
 
 import NumberContext from './context/NumberContext';
@@ -12,12 +12,13 @@ import Header from './part/Header';
 
 import { globalState } from './context/GlobalContext'
 
+// đang không dùng thằng này mà dùng thằng DrawerNav (tự custom) bên trên
 const MyAppDraw = createDrawerNavigator({
   MyHome: {
     screen: Home,
   },
   Notifications: {
-    screen: Notification,
+    screen: Notifications,
   },
 });
 

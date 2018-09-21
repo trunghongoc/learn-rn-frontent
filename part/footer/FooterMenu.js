@@ -7,23 +7,23 @@ import Item from './Item';
 
 export default class FooterMenu extends React.Component {
     homeClick = (context) => {
-        context.actions.setActiveMenu('home');
+        context.actions.setActiveMenu('Home');
         this.props.navigation.navigate('Home');
     }
 
     myProfileClick = (context) => {
-        context.actions.setActiveMenu('myProfile');
-        this.props.navigation.navigate('myProfile');
+        context.actions.setActiveMenu('MyProfile');
+        this.props.navigation.navigate('MyProfile');
     }
 
     newsClick = (context) => {
-        context.actions.setActiveMenu('news');
-        this.props.navigation.navigate('news');
+        context.actions.setActiveMenu('News');
+        this.props.navigation.navigate('News');
     }
 
     notificationClick = (context) => {
-        context.actions.setActiveMenu('notification');
-        this.props.navigation.navigate('Notification');
+        context.actions.setActiveMenu('Notifications');
+        this.props.navigation.navigate('Notifications');
     }
 
     render() {
@@ -39,7 +39,7 @@ export default class FooterMenu extends React.Component {
                         badge={null}
                         TypeIcon={Icon.PieChart}
                         text="Trang chủ"
-                        menuKey="home"
+                        menuKey="Home"
                         menuActive={context.state.menuActive}
                         handlePress={ () => this.homeClick(context) } />
 
@@ -48,7 +48,7 @@ export default class FooterMenu extends React.Component {
                         badge={null}
                         TypeIcon={Icon.User}
                         text="Cá nhân"
-                        menuKey="myProfile"
+                        menuKey="MyProfile"
                         menuActive={context.state.menuActive}
                         handlePress={ () => this.myProfileClick(context) } />
 
@@ -57,7 +57,7 @@ export default class FooterMenu extends React.Component {
                         badge={5}
                         TypeIcon={Icon.EarphonesAlt}
                         text="Tin tức"
-                        menuKey="news"
+                        menuKey="News"
                         menuActive={context.state.menuActive}
                         handlePress={ () => this.newsClick(context) } />
 
@@ -67,7 +67,7 @@ export default class FooterMenu extends React.Component {
                         badge={22}
                         TypeIcon={Icon.Bell}
                         text="Thông báo"
-                        menuKey="notification"
+                        menuKey="Notifications"
                         menuActive={context.state.menuActive}
                         handlePress={ () => this.notificationClick(context) } />
                 </View>
