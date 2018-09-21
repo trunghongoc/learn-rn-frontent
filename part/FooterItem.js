@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     default: {
-        color: Config.textWhite,
+        color: Config.white,
     },
     active: {
-        color: Config.yellowLight
+        color: Config.black
     },
     badge: {
         paddingHorizontal: 5,
@@ -32,7 +32,7 @@ export default class FooterItem extends React.Component {
     render() {
         const { badge, TypeIcon, text, menuKey, menuActive, handlePress } = this.props;
         const className = menuKey === menuActive ? styles.active : styles.default;
-        const color = menuKey === menuActive ? Config.yellowLight : Config.textWhite;
+        const color = menuKey === menuActive ? Config.black : Config.white;
         return (
         <TouchableNativeFeedback onPress={ handlePress }>
             <View style={styles.item}>

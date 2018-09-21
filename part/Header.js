@@ -23,17 +23,17 @@ export default class Header extends React.Component {
         <View style={styles.header}>
           <View style={styles.textLeft}>
             <TouchableOpacity onPress={this.pressLeftBtn} style={styles.btnHeader}>
-              <Icon.Menu color={Config.textWhite}/>
+              <Icon.Menu color={Config.white}/>
             </TouchableOpacity>
           </View>
           <View style={styles.textCent}>
             <TouchableOpacity onPress={this.pressCenterBtn} style={styles.btnHeader}>
-              <Icon.Diamond color={Config.textWhite}/>
+              <Icon.Diamond color={Config.white}/>
             </TouchableOpacity>
           </View>
           <View style={styles.textRight}>
             <TouchableOpacity onPress={this.pressRightBtn} style={styles.btnHeader}>
-              <Icon.Info color={Config.textWhite}/>
+              <Icon.Info color={Config.white}/>
             </TouchableOpacity>
           </View>
         </View>
