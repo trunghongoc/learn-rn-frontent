@@ -6,7 +6,8 @@ import Home from './screen/Home'
 import Notification from './screen/Notification'
 import { DrawerNav } from './drawer/DrawerNav';
 
-import NumberContext from "./context/NumberContext";
+import NumberContext from './context/NumberContext';
+import GlobalContext from './context/GlobalContext';
 import Header from './part/Header';
 
 import { globalState } from './context/GlobalContext'
@@ -47,9 +48,9 @@ export default class App extends React.Component {
       }
     }
     return (
-      <NumberContext.Provider value={context}>
+      <GlobalContext.Provider value={context}>
         <DrawerNav/>
-      </NumberContext.Provider>
+      </GlobalContext.Provider>
     )
   }
 }

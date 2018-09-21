@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import NumberContext from "./../context/NumberContext";
-import * as Icon from '../icons/SimpleLine';
-import * as Config from '../config/Config';
-import FooterItem from './FooterItem';
+import GlobalContext from "../../context/GlobalContext";
+import * as Icon from './../../icons/SimpleLine';
+import * as Config from './../../config/Config'
+import Item from './Item';
 
 export default class FooterMenu extends React.Component {
     homeClick = (context) => {
@@ -27,11 +27,15 @@ export default class FooterMenu extends React.Component {
     }
 
     render() {
+        const stylePrimary = false;
+        const styleFooter = stylePrimary ? styles.footerPrimary : styles.footerDefault;
+
         return (
-            <NumberContext.Consumer>
+            <GlobalContext.Consumer>
             {(context) => (
-                <View style={styles.footer}>
-                    <FooterItem
+                <View style={[styles.publicStyle, styleFooter]}>
+                    <Item
+                        stylePrimary={stylePrimary}
                         badge={null}
                         TypeIcon={Icon.PieChart}
                         text="Trang chủ"
@@ -39,7 +43,8 @@ export default class FooterMenu extends React.Component {
                         menuActive={context.state.menuActive}
                         handlePress={ () => this.homeClick(context) } />
 
-                    <FooterItem
+                    <Item
+                        stylePrimary={stylePrimary}
                         badge={null}
                         TypeIcon={Icon.User}
                         text="Cá nhân"
@@ -47,7 +52,8 @@ export default class FooterMenu extends React.Component {
                         menuActive={context.state.menuActive}
                         handlePress={ () => this.myProfileClick(context) } />
 
-                    <FooterItem
+                    <Item
+                        stylePrimary={stylePrimary}
                         badge={5}
                         TypeIcon={Icon.EarphonesAlt}
                         text="Tin tức"
@@ -56,7 +62,8 @@ export default class FooterMenu extends React.Component {
                         handlePress={ () => this.newsClick(context) } />
 
 
-                    <FooterItem
+                    <Item
+                        stylePrimary={stylePrimary}
                         badge={22}
                         TypeIcon={Icon.Bell}
                         text="Thông báo"
@@ -65,22 +72,23 @@ export default class FooterMenu extends React.Component {
                         handlePress={ () => this.notificationClick(context) } />
                 </View>
             )}
-            </NumberContext.Consumer>
+            </GlobalContext.Consumer>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    footer: {
+    publicStyle: {
         height: 52,
-        backgroundColor: Config.primaryColor,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginTop: 7
     },
-    
-    itemActive: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: Config.primaryColorLight
+    footerPrimary: {
+        backgroundColor: Config.primaryColor,
+    },
+    footerDefault: {
+        backgroundColor: Config.white,
+        borderTopWidth: 1,
+        borderColor: Config.grayM
     }
 });

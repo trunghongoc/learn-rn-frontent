@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableNativeFeedback } from 'react-native';
-import * as Config from '../config/Config';
+import * as Config from './../../config/Config';
 
 const styles = StyleSheet.create({
     item: {
@@ -9,10 +9,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     default: {
-        color: Config.white,
+        color: Config.grayB,
+        color: '#bdc3c7'
     },
     active: {
-        color: Config.black
+        color: Config.primaryColor
     },
     badge: {
         paddingHorizontal: 5,
@@ -28,11 +29,11 @@ const styles = StyleSheet.create({
     }
 });
 
-export default class FooterItem extends React.Component {
+export default class Item extends React.Component {
     render() {
         const { badge, TypeIcon, text, menuKey, menuActive, handlePress } = this.props;
         const className = menuKey === menuActive ? styles.active : styles.default;
-        const color = menuKey === menuActive ? Config.black : Config.white;
+        const color = menuKey === menuActive ? Config.primaryColor : Config.grayM;
         return (
         <TouchableNativeFeedback onPress={ handlePress }>
             <View style={styles.item}>
