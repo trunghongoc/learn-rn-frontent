@@ -32,7 +32,7 @@ export default class drawerContentComponents extends Component {
             </View>
             <View style={styles.screenContainer}>
                 <Item pressEvent={this.navigateToScreen('Home')} Icon_={<Icon.Globe/>} text="Trang chủ"/>
-                <Item pressEvent={this.navigateToScreen('Notification')} Icon_={<Icon.Info/>} text="Thông báo"/>
+                <Item pressEvent={this.navigateToScreen('Notifications')} Icon_={<Icon.Info/>} text="Thông báo"/>
             </View>
         </View>
     )

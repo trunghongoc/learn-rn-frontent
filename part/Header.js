@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import * as Icon from '../icons/SimpleLine';
 import * as Config from '../config/Config';
+import { withNavigation } from 'react-navigation';
 
 export default class Header extends React.Component {
   pressLeftBtn = () => {
